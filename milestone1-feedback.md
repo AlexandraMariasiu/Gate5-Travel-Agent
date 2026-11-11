@@ -1,0 +1,1 @@
+The RFC is OK, but for the next steps, trace one itinerary end to end: how place data and opening times are retrieved, how distance or schedule constraints are checked, and how a user change updates the plan.
