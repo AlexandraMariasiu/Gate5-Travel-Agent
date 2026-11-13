@@ -37,6 +37,14 @@ One real attraction or restaurant (Milestone 2, sections 1.3–1.4). A place is 
 
 **Missing data:** leave it `null` (or `hours_status: "unknown"`). Never invent a value.
 
+**Rules checked automatically:**
+- `hours_status: "known"` requires a non-empty `opening_hours`.
+- `(provider, provider_id)` must be unique in `places.json`, and every place's `city` must match the dataset `city`.
+- `lat` must be between -90 and 90, `lon` between -180 and 180, and `est_visit_minutes` must be greater than 0.
+- Unknown or misspelled field names in places, activities and golden test cases are rejected (e.g. `hours_staus`).
+- `provider` must be `"opentripmap"` or `"openstreetmap"`.
+- A `Trip` has 1–3 days; activity `start`/`end` must be `HH:MM` (24-hour); `test_id` must look like `GD01`.
+
 `data/places.json` format:
 
 ```json

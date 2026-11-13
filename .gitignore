@@ -5,3 +5,4 @@ venv/
 .env
 *.gguf
 *.safetensors
+chroma_db/

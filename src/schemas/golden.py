@@ -1,9 +1,9 @@
 from enum import Enum
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict, Field
 
 from .trip import Trip
-
+from .place import Provider
 
 class GoldenCategory(str, Enum):
     ITINERARY_GENERATION = "itinerary_generation"
@@ -23,7 +23,7 @@ class Check(str, Enum):
 
 
 class PlaceRef(BaseModel):
-    provider:str
+    provider:Provider
     provider_id:str
     name:Optional[str]=None
 
@@ -33,7 +33,9 @@ class GoldenContext(BaseModel):
     notes: Optional[str]= None
 
 class GoldenTestCase(BaseModel):
-    test_id: str
+    model_config = ConfigDict(extra="forbid")
+    
+    test_id: str=Field(pattern=r"^GD\d{2}$")
     category: GoldenCategory
     user_request: str
     context: GoldenContext = GoldenContext()

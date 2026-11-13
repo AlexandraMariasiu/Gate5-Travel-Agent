@@ -8,6 +8,7 @@
 
 ```
 src/
+  models/       local SLM test script (Task 4)
   schemas/      shared data structures (Place, Trip, Day, Activity, golden test case)
   config.py     project settings (prototype city)
 data/           place data (Task 1) and RAG sources (Task 2)

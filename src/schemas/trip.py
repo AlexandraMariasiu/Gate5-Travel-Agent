@@ -1,8 +1,12 @@
 import datetime as dt
 from enum import Enum
-from typing import Optional
+from typing import Literal,Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, Field
+
+from .place import Provider
+
+TIME = r"^([01]\d|2[0-3]):[0-5]\d$"
 
 class Pace(str,Enum):
     RELAXED = "relaxed"
@@ -20,18 +24,20 @@ class TripRequest(BaseModel):
 
 
 class Activity(BaseModel):
-    provider: str
+    model_config = ConfigDict(extra="forbid")
+
+    provider: Provider
     provider_id: str
     name: str
-    start: str             
-    end: str               
+    start: str = Field(pattern=TIME)
+    end: str = Field(pattern=TIME)              
     pinned: bool = False   
     note: Optional[str] = None  
 
 
 class ValidationIssue(BaseModel):
     code: str
-    severity: str
+    severity: Literal["error", "warning"]
     activity_index: Optional[int]=None
     message: str
 
@@ -46,5 +52,5 @@ class Trip(BaseModel):
     city:str
     pace:Pace=Pace.BALANCED
     request: Optional[TripRequest]=None
-    days:list[Day]
+    days:list[Day] = Field(min_length=1, max_length=3)
     history: list[str]=[]
