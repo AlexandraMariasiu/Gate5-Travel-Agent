@@ -33,6 +33,7 @@ if str(REPO_ROOT) not in sys.path:
 from scripts.collectors import (
     SourceDocument,
     build_http_session,
+    collect_travel_blogs,
     collect_wikivoyage,
     save_documents,
     write_manifest,
@@ -43,16 +44,6 @@ DEFAULT_OUTPUT_DIRECTORY = REPO_ROOT / "data" / "rag_sources"
 DEFAULT_MIN_REDDIT_SCORE = 25
 
 logger = logging.getLogger("collect_guides")
-
-
-def collect_travel_blogs(
-    session: requests.Session,
-    city: str,
-    retrieved_at: str,
-) -> list[SourceDocument]:
-    """Collect clean Markdown articles from curated travel blogs."""
-    logger.info("Travel blog collector is not implemented yet.")
-    return []
 
 
 def collect_reddit(

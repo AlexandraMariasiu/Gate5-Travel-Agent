@@ -1,7 +1,7 @@
 {
   "city": "Rome",
   "updated_at": "2026-11-14",
-  "document_count": 20,
+  "document_count": 28,
   "documents": [
     {
       "document_id": "Rome_wikivoyage_Buy",
@@ -242,6 +242,102 @@
       "retrieved_at": "2026-11-14",
       "license": "CC BY-SA 4.0 (Wikivoyage contributors)",
       "file_path": "official_guide/rome_wikivoyage_understand.md"
+    },
+    {
+      "document_id": "rome_blog_fhtr_neighborhoods",
+      "title": "Choosing the best neighborhood for your vacation in Rome",
+      "city": "Rome",
+      "topic": "neighborhoods",
+      "source_type": "travel_blog",
+      "source_url": "https://www.fromhometorome.com/choosing-the-best-neighborhood-for-your-vacation-in-rome/",
+      "updated_at": "2025-08-09",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (From Home to Rome); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_fhtr_neighborhoods.md"
+    },
+    {
+      "document_id": "rome_blog_fhtr_rainy_day",
+      "title": "What to do in Rome on a rainy day",
+      "city": "Rome",
+      "topic": "rainy_day",
+      "source_type": "travel_blog",
+      "source_url": "https://www.fromhometorome.com/what-to-do-in-rome-on-a-rainy-day/",
+      "updated_at": "2018-12-28",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (From Home to Rome); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_fhtr_rainy_day.md"
+    },
+    {
+      "document_id": "rome_blog_fhtr_tourist_scams",
+      "title": "Stay safe in Rome: unmasking the top tourist scams",
+      "city": "Rome",
+      "topic": "safety",
+      "source_type": "travel_blog",
+      "source_url": "https://www.fromhometorome.com/stay-safe-in-rome-unmasking-the-top-tourist-scams/",
+      "updated_at": "2025-02-01",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (From Home to Rome); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_fhtr_tourist_scams.md"
+    },
+    {
+      "document_id": "rome_blog_fhtr_trastevere",
+      "title": "A day in Trastevere: what to do, where to eat, and how not to waste it",
+      "city": "Rome",
+      "topic": "neighborhoods",
+      "source_type": "travel_blog",
+      "source_url": "https://www.fromhometorome.com/a-day-in-trastevere-what-to-do-where-to-eat-and-how-not-to-waste-it/",
+      "updated_at": "2026-10-23",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (From Home to Rome); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_fhtr_trastevere.md"
+    },
+    {
+      "document_id": "rome_blog_ricksteves_itinerary",
+      "title": "Rome Itinerary: Planning Your Time",
+      "city": "Rome",
+      "topic": "itinerary_tips",
+      "source_type": "travel_blog",
+      "source_url": "https://www.ricksteves.com/europe/italy/rome-itinerary",
+      "updated_at": "2026-11-14",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (Rick Steves' Europe); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_ricksteves_itinerary.md"
+    },
+    {
+      "document_id": "rome_blog_romewise_food_customs",
+      "title": "Romewise | Food & Drink | Understanding Italian food customs",
+      "city": "Rome",
+      "topic": "food",
+      "source_type": "travel_blog",
+      "source_url": "https://romewise.com/food-drink-in-rome/my-complete-guide-to-understanding-italian-food-customs/",
+      "updated_at": "2026-10-03",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (Romewise); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_romewise_food_customs.md"
+    },
+    {
+      "document_id": "rome_blog_romewise_rainy_day",
+      "title": "Romewise | Weather | How to have fun in Rome on a rainy day",
+      "city": "Rome",
+      "topic": "rainy_day",
+      "source_type": "travel_blog",
+      "source_url": "https://romewise.com/essential-things/weather/how-to-have-fun-in-rome-on-a-rainy-day/",
+      "updated_at": "2026-10-20",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (Romewise); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_romewise_rainy_day.md"
+    },
+    {
+      "document_id": "rome_blog_romewise_transport",
+      "title": "Romewise | Transport | How to use Rome transportation to explore",
+      "city": "Rome",
+      "topic": "getting_around",
+      "source_type": "travel_blog",
+      "source_url": "https://romewise.com/essential-things/transport/rome-transportation-how-to-explore-the-eternal-city/",
+      "updated_at": "2026-11-09",
+      "retrieved_at": "2026-11-14",
+      "license": "Editorial web article (Romewise); attributed for academic RAG",
+      "file_path": "travel_blog/rome_blog_romewise_transport.md"
     }
   ]
 }
