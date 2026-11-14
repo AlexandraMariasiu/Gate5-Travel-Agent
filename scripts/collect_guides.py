@@ -6,7 +6,7 @@ Saves clean Markdown documents with YAML frontmatter metadata
 from three source categories:
   1. official_guide  - Wikivoyage via MediaWiki API
   2. travel_blog     - Curated travel articles via trafilatura / BeautifulSoup
-  3. community_forum - Reddit threads via public JSON endpoints
+  3. community_forum - Reddit threads via OAuth API or Arctic Shift archive fallback
 
 Usage:
     python scripts/collect_guides.py --city Rome --sources all
@@ -33,6 +33,7 @@ if str(REPO_ROOT) not in sys.path:
 from scripts.collectors import (
     SourceDocument,
     build_http_session,
+    collect_reddit,
     collect_travel_blogs,
     collect_wikivoyage,
     save_documents,
@@ -41,21 +42,9 @@ from scripts.collectors import (
 from src.config import PROTOTYPE_CITY
 
 DEFAULT_OUTPUT_DIRECTORY = REPO_ROOT / "data" / "rag_sources"
-DEFAULT_MIN_REDDIT_SCORE = 25
+DEFAULT_MINIMUM_REDDIT_SCORE = 25
 
 logger = logging.getLogger("collect_guides")
-
-
-def collect_reddit(
-    session: requests.Session,
-    city: str,
-    retrieved_at: str,
-    *,
-    min_score: int = DEFAULT_MIN_REDDIT_SCORE,
-) -> list[SourceDocument]:
-    """Collect top-voted Reddit discussions and comments."""
-    logger.info("Reddit collector is not implemented yet.")
-    return []
 
 
 def parse_arguments(arguments: Optional[list[str]] = None) -> argparse.Namespace:
@@ -84,8 +73,8 @@ def parse_arguments(arguments: Optional[list[str]] = None) -> argparse.Namespace
     parser.add_argument(
         "--min-reddit-score",
         type=int,
-        default=DEFAULT_MIN_REDDIT_SCORE,
-        help=f"Minimum post upvote score for Reddit threads (default: {DEFAULT_MIN_REDDIT_SCORE}).",
+        default=DEFAULT_MINIMUM_REDDIT_SCORE,
+        help=f"Minimum post upvote score for Reddit threads (default: {DEFAULT_MINIMUM_REDDIT_SCORE}).",
     )
     parser.add_argument(
         "--overwrite",
@@ -130,7 +119,7 @@ def main(arguments: Optional[list[str]] = None) -> int:
                     session,
                     options.city,
                     retrieved_at,
-                    min_score=options.min_reddit_score,
+                    minimum_score=options.min_reddit_score,
                 ),
             )
         )
