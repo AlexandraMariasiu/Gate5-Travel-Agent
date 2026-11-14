@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.gguf
+*.safetensors
+chroma_db/
