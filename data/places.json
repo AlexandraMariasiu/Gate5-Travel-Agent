@@ -1,0 +1,636 @@
+{
+  "city": "Rome",
+  "version": "2026-11-15",
+  "places": [
+    {
+      "provider": "openstreetmap",
+      "provider_id": "relation/1834818",
+      "name": "Colosseum",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": null,
+      "lat": 41.8902602,
+      "lon": 12.4923737,
+      "source_url": "https://www.openstreetmap.org/relation/1834818",
+      "opening_hours": "Mar 29-Sep 30 08:30-19:15; Oct 01-Oct 24 08:30-18:30; Oct 25-Feb 28 08:30-16:30; Jan 01 off; Dec 25 off",
+      "hours_status": "known",
+      "est_visit_minutes": 120,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "way/112137587",
+      "name": "Vatican Museums",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.9062675,
+      "lon": 12.4527441,
+      "source_url": "https://www.openstreetmap.org/way/112137587",
+      "opening_hours": "Mo-Sa 09:00-18:00; Su 09:00-14:00",
+      "hours_status": "known",
+      "est_visit_minutes": 180,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "way/244159210",
+      "name": "Saint Peter's Basilica",
+      "city": "Rome",
+      "category": "religion",
+      "interest_tags": [
+        "religion"
+      ],
+      "indoor": true,
+      "lat": 41.9021616,
+      "lon": 12.4537132,
+      "source_url": "https://www.openstreetmap.org/way/244159210",
+      "opening_hours": "Mo-Su 07:00-20:00",
+      "hours_status": "known",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "relation/3374342",
+      "name": "Pantheon",
+      "city": "Rome",
+      "category": "religion",
+      "interest_tags": [
+        "religion"
+      ],
+      "indoor": true,
+      "lat": 41.8986261,
+      "lon": 12.4768335,
+      "source_url": "https://www.openstreetmap.org/relation/3374342",
+      "opening_hours": "Mo-Sa 08:30-19:15; Su 09:00-17:45",
+      "hours_status": "known",
+      "est_visit_minutes": 30,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "way/4247138",
+      "name": "Piazza Navona",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.8989256,
+      "lon": 12.4730991,
+      "source_url": "https://www.openstreetmap.org/way/4247138",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 30,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "way/24098531",
+      "name": "Spanish Steps",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.906032,
+      "lon": 12.4825243,
+      "source_url": "https://www.openstreetmap.org/way/24098531",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 20,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/1440405490",
+      "name": "Galleria Borghese",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.9141133,
+      "lon": 12.4921053,
+      "source_url": "https://www.openstreetmap.org/node/1440405490",
+      "opening_hours": "Tu-Su 09:00-19:00",
+      "hours_status": "known",
+      "est_visit_minutes": 120,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "relation/2529081",
+      "name": "Trastevere",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.8912019,
+      "lon": 12.4687363,
+      "source_url": "https://www.openstreetmap.org/relation/2529081",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 120,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "way/8035487",
+      "name": "Castle of the Holy Angel",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": null,
+      "lat": 41.9030762,
+      "lon": 12.4663312,
+      "source_url": "https://www.openstreetmap.org/way/8035487",
+      "opening_hours": "Mo-Su 09:00-19:30",
+      "hours_status": "known",
+      "est_visit_minutes": 90,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/253874144",
+      "name": "Quattro Fontane (Four Fountains)",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.9019689,
+      "lon": 12.4907414,
+      "source_url": "https://www.openstreetmap.org/node/253874144",
+      "opening_hours": "24/7",
+      "hours_status": "known",
+      "est_visit_minutes": 10,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/259064789",
+      "name": "Catacomb of Priscilla",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": true,
+      "lat": 41.9297262,
+      "lon": 12.5087652,
+      "source_url": "https://www.openstreetmap.org/node/259064789",
+      "opening_hours": "09:30-13:00,14:00-17:00",
+      "hours_status": "known",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/365475871",
+      "name": "Palatine Hill",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": false,
+      "lat": 41.8893064,
+      "lon": 12.4871093,
+      "source_url": "https://www.openstreetmap.org/node/365475871",
+      "opening_hours": "Jan 02-Feb 15,Oct 28-Dec 31 08:30-16:30; Jan 16-Mar 15 08:30-17:00; Mar 16-24 08:30-17:30; Mar 25-Aug 31 08:30-19:15; Sep 01-30 08:30-19:00",
+      "hours_status": "known",
+      "est_visit_minutes": 120,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/452570567",
+      "name": "Catacombe di San Sebastiano",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": null,
+      "lat": 41.85593,
+      "lon": 12.5157968,
+      "source_url": "https://www.openstreetmap.org/node/452570567",
+      "opening_hours": "09:30-17:30",
+      "hours_status": "known",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/602095458",
+      "name": "Museo Storico dei Bersaglieri",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.909267,
+      "lon": 12.5010785,
+      "source_url": "https://www.openstreetmap.org/node/602095458",
+      "opening_hours": "Mo,We,Fr 09:00-13:00",
+      "hours_status": "known",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/656532697",
+      "name": "Galleria Spada",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.8938866,
+      "lon": 12.4722011,
+      "source_url": "https://www.openstreetmap.org/node/656532697",
+      "opening_hours": "We-Mo 08:30-19:30; Tu off; May 1 off; Dec 25 off",
+      "hours_status": "known",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/656829698",
+      "name": "Museo di Roma",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.8972775,
+      "lon": 12.4727772,
+      "source_url": "https://www.openstreetmap.org/node/656829698",
+      "opening_hours": "Tu-Su 10:00-19:00; Jan 01 11:00-19:30; Dec 24,31 10:00-14:00; Jan 01 off; Mo off; May 01 off; Dec 25 off",
+      "hours_status": "known",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/677476578",
+      "name": "Museo Nazionale Romano",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.9011978,
+      "lon": 12.4728382,
+      "source_url": "https://www.openstreetmap.org/node/677476578",
+      "opening_hours": "Tu-Su 09:00-19:45",
+      "hours_status": "known",
+      "est_visit_minutes": 90,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/706793341",
+      "name": "Palazzo Doria Pamphilj",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.8978235,
+      "lon": 12.4815609,
+      "source_url": "https://www.openstreetmap.org/node/706793341",
+      "opening_hours": "Mo-Th 09:00-19:00; Fr-Su 10:00-20:00",
+      "hours_status": "known",
+      "est_visit_minutes": 90,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/1303845491",
+      "name": "Museo Pietro Canonica",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.9151245,
+      "lon": 12.4862373,
+      "source_url": "https://www.openstreetmap.org/node/1303845491",
+      "opening_hours": "Oct-May: Tu-Su 10:00-16:00; Dec 24,31 10:00-14:00; Jun-Sep: Tu-Su 13:00-19:00; Jan 01,May 01,Dec 25 off",
+      "hours_status": "known",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/1305071783",
+      "name": "Idrocronometro",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.9117513,
+      "lon": 12.4807242,
+      "source_url": "https://www.openstreetmap.org/node/1305071783",
+      "opening_hours": "24/7",
+      "hours_status": "known",
+      "est_visit_minutes": 10,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/1649776329",
+      "name": "Galleria Colonna",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.8974483,
+      "lon": 12.484845,
+      "source_url": "https://www.openstreetmap.org/node/1649776329",
+      "opening_hours": "Sa 09:00-13:15",
+      "hours_status": "known",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/1674754682",
+      "name": "Cloisters of Bramante",
+      "city": "Rome",
+      "category": "museums",
+      "interest_tags": [
+        "museums"
+      ],
+      "indoor": true,
+      "lat": 41.9000215,
+      "lon": 12.4715028,
+      "source_url": "https://www.openstreetmap.org/node/1674754682",
+      "opening_hours": "Mo-Th,Su 10:00-19:00; Fr-Sa 10:00-20:00",
+      "hours_status": "known",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/4754734734",
+      "name": "Cloaca Máxima",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.8888344,
+      "lon": 12.4802374,
+      "source_url": "https://www.openstreetmap.org/node/4754734734",
+      "opening_hours": "24/7",
+      "hours_status": "known",
+      "est_visit_minutes": 15,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/256753107",
+      "name": "Porta Magica",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": false,
+      "lat": 41.8955021,
+      "lon": 12.5037397,
+      "source_url": "https://www.openstreetmap.org/node/256753107",
+      "opening_hours": "08:00-21:00",
+      "hours_status": "known",
+      "est_visit_minutes": 10,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/259555733",
+      "name": "Catacombe di Sant'Agnese",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": true,
+      "lat": 41.9227681,
+      "lon": 12.51876,
+      "source_url": "https://www.openstreetmap.org/node/259555733",
+      "opening_hours": "Mo-Sa 10:00-13:00,15:00-18:00",
+      "hours_status": "known",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/279379894",
+      "name": "Santa Maria in Trivio",
+      "city": "Rome",
+      "category": "religion",
+      "interest_tags": [
+        "religion"
+      ],
+      "indoor": true,
+      "lat": 41.9011982,
+      "lon": 12.4827454,
+      "source_url": "https://www.openstreetmap.org/node/279379894",
+      "opening_hours": "Mo-Fr 10:00-12:00,13:30-19:30; Sa 10:00-12:00,16:00-19:30; Su 09:00-12:00,16:00-19:30",
+      "hours_status": "known",
+      "est_visit_minutes": 15,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/301361919",
+      "name": "Statua \"parlante\" di Pasquino",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": false,
+      "lat": 41.8977153,
+      "lon": 12.4723082,
+      "source_url": "https://www.openstreetmap.org/node/301361919",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 10,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/365322259",
+      "name": "Porta Latina",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": false,
+      "lat": 41.8765186,
+      "lon": 12.5024875,
+      "source_url": "https://www.openstreetmap.org/node/365322259",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 10,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/766869078",
+      "name": "Harry's Bar",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": null,
+      "lat": 41.909077,
+      "lon": 12.488319,
+      "source_url": "https://www.openstreetmap.org/node/766869078",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/1340656195",
+      "name": "Elephant and Obelisk",
+      "city": "Rome",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": null,
+      "lat": 41.8979741,
+      "lon": 12.4775597,
+      "source_url": "https://www.openstreetmap.org/node/1340656195",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 45,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/3585887800",
+      "name": "Cappella di Sant'Elena",
+      "city": "Rome",
+      "category": "religion",
+      "interest_tags": [
+        "religion"
+      ],
+      "indoor": true,
+      "lat": 41.8926176,
+      "lon": 12.5029524,
+      "source_url": "https://www.openstreetmap.org/node/3585887800",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 15,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/4398812618",
+      "name": "Chiesa di Santa Maria Immacolata a Villa Borghese",
+      "city": "Rome",
+      "category": "religion",
+      "interest_tags": [
+        "religion"
+      ],
+      "indoor": true,
+      "lat": 41.9129261,
+      "lon": 12.4864368,
+      "source_url": "https://www.openstreetmap.org/node/4398812618",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 20,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/259576441",
+      "name": "Fontana dei Libri",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": false,
+      "lat": 41.8984045,
+      "lon": 12.4742016,
+      "source_url": "https://www.openstreetmap.org/node/259576441",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 10,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/3512305861",
+      "name": "The Hole of Rome",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": null,
+      "lat": 41.882927,
+      "lon": 12.47841,
+      "source_url": "https://www.openstreetmap.org/node/3512305861",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    },
+    {
+      "provider": "openstreetmap",
+      "provider_id": "node/4450594029",
+      "name": "Miracle Water",
+      "city": "Rome",
+      "category": "cultural",
+      "interest_tags": [
+        "culture"
+      ],
+      "indoor": null,
+      "lat": 41.90157,
+      "lon": 12.4814682,
+      "source_url": "https://www.openstreetmap.org/node/4450594029",
+      "opening_hours": null,
+      "hours_status": "unknown",
+      "est_visit_minutes": 60,
+      "retrieved_at": "2026-11-15"
+    }
+  ]
+}
