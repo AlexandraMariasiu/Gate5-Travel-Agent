@@ -1,0 +1,173 @@
+{
+  "overrides": {
+    "openstreetmap:node/253874144": {
+      "source": "Quattro Fontane (Four Fountains) - manual entry",
+      "indoor": false,
+      "opening_hours": "24/7",
+      "hours_status": "known",
+      "est_visit_minutes": 10
+    },
+    "openstreetmap:node/259064789": {
+      "source": "Catacomb of Priscilla - manual entry",
+      "indoor": true,
+      "opening_hours": "09:30-13:00,14:00-17:00",
+      "hours_status": "known"
+    },
+    "openstreetmap:node/602095458": {
+      "source": "Museo Storico dei Bersaglieri - manual entry",
+      "opening_hours": "Mo,We,Fr 09:00-13:00",
+      "hours_status": "known",
+      "est_visit_minutes": 60
+    },
+    "openstreetmap:node/1305071783": {
+      "source": "Idrocronometro - manual entry",
+      "indoor": false,
+      "opening_hours": "24/7",
+      "hours_status": "known",
+      "est_visit_minutes": 10
+    },
+    "openstreetmap:node/1674754682": {
+      "source": "Cloisters of Bramante - manual entry",
+      "indoor": true,
+      "opening_hours": "Mo-Th,Su 10:00-19:00; Fr-Sa 10:00-20:00",
+      "hours_status": "known",
+      "est_visit_minutes": 45
+    },
+    "openstreetmap:node/4754734734": {
+      "source": "Cloaca Maxima - manual entry",
+      "indoor": false,
+      "opening_hours": "24/7",
+      "hours_status": "known",
+      "est_visit_minutes": 15
+    },
+    "openstreetmap:node/256753107": {
+      "source": "Porta Magica - manual entry",
+      "indoor": false,
+      "opening_hours": "08:00-21:00",
+      "hours_status": "known",
+      "est_visit_minutes": 10
+    },
+    "openstreetmap:node/259555733": {
+      "source": "Catacombe di Sant'Agnese - manual entry",
+      "indoor": true,
+      "opening_hours": "Mo-Sa 10:00-13:00,15:00-18:00",
+      "hours_status": "known"
+    },
+    "openstreetmap:node/279379894": {
+      "source": "Santa Maria in Trivio - manual entry",
+      "indoor": true,
+      "opening_hours": "Mo-Fr 10:00-12:00,13:30-19:30; Sa 10:00-12:00,16:00-19:30; Su 09:00-12:00,16:00-19:30",
+      "hours_status": "known",
+      "est_visit_minutes": 15
+    },
+    "openstreetmap:relation/1834818": {
+      "note": "Colosseum - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 120
+    },
+    "openstreetmap:way/112137587": {
+      "note": "Vatican Museums - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 180
+    },
+    "openstreetmap:way/244159210": {
+      "note": "Saint Peter's Basilica - estimate by Task 1 owner (to review)",
+      "indoor": true,
+      "est_visit_minutes": 60
+    },
+    "openstreetmap:relation/3374342": {
+      "note": "Pantheon - estimate by Task 1 owner (to review)",
+      "indoor": true,
+      "est_visit_minutes": 30
+    },
+    "openstreetmap:way/4247138": {
+      "note": "Piazza Navona - estimate by Task 1 owner (to review)",
+      "indoor": false,
+      "est_visit_minutes": 30
+    },
+    "openstreetmap:way/24098531": {
+      "note": "Spanish Steps - estimate by Task 1 owner (to review)",
+      "indoor": false,
+      "est_visit_minutes": 20
+    },
+    "openstreetmap:node/1440405490": {
+      "note": "Galleria Borghese - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 120
+    },
+    "openstreetmap:relation/2529081": {
+      "note": "Trastevere (neighborhood, no opening hours) - estimate by Task 1 owner (to review)",
+      "indoor": false,
+      "est_visit_minutes": 120
+    },
+    "openstreetmap:way/8035487": {
+      "note": "Castel Sant'Angelo - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 90
+    },
+    "openstreetmap:node/365475871": {
+      "note": "Palatine Hill - estimate by Task 1 owner (to review)",
+      "category": "historic",
+      "interest_tags": [
+        "history"
+      ],
+      "indoor": false,
+      "est_visit_minutes": 120
+    },
+    "openstreetmap:node/656532697": {
+      "note": "Galleria Spada - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 60
+    },
+    "openstreetmap:node/656829698": {
+      "note": "Museo di Roma - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 60
+    },
+    "openstreetmap:node/1303845491": {
+      "note": "Museo Pietro Canonica - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 45
+    },
+    "openstreetmap:node/1649776329": {
+      "note": "Galleria Colonna - estimate by Task 1 owner (to review)",
+      "est_visit_minutes": 60
+    },
+    "openstreetmap:node/301361919": {
+      "note": "Pasquino statue - estimate by Task 1 owner (to review)",
+      "indoor": false,
+      "est_visit_minutes": 10
+    },
+    "openstreetmap:node/365322259": {
+      "note": "Porta Latina - estimate by Task 1 owner (to review)",
+      "indoor": false,
+      "est_visit_minutes": 10
+    },
+    "openstreetmap:node/259576441": {
+      "note": "Fontana dei Libri - estimate by Task 1 owner (to review)",
+      "indoor": false,
+      "est_visit_minutes": 10
+    },
+    "openstreetmap:node/4398812618": {
+      "note": "Chiesa di Santa Maria Immacolata a Villa Borghese - estimate by Task 1 owner (to review)",
+      "indoor": true,
+      "est_visit_minutes": 20
+    },
+    "openstreetmap:node/3585887800": {
+      "note": "Cappella di Sant'Elena - estimate by Task 1 owner (to review)",
+      "indoor": true,
+      "est_visit_minutes": 15
+    }
+  },
+  "exclude": [
+    "openstreetmap:node/259261742",
+    "openstreetmap:node/2419664831",
+    "openstreetmap:node/12403748462",
+    "openstreetmap:node/410779713",
+    "openstreetmap:node/260770350"
+  ],
+  "include": [
+    "openstreetmap:relation/1834818",
+    "openstreetmap:way/112137587",
+    "openstreetmap:way/244159210",
+    "openstreetmap:relation/3374342",
+    "openstreetmap:way/4247138",
+    "openstreetmap:way/24098531",
+    "openstreetmap:node/1440405490",
+    "openstreetmap:relation/2529081",
+    "openstreetmap:way/8035487"
+  ]
+}
