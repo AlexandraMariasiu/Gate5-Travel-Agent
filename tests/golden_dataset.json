@@ -1,0 +1,283 @@
+{
+  "city": "Rome",
+  "place_dataset_version": "2026-11-15",
+  "cases": [
+    {
+      "test_id": "GD01",
+      "category": "itinerary_generation",
+      "user_request": "Plan a two-day trip to Rome. I like history and local food, and I prefer a balanced pace.",
+      "context": {
+        "places": [
+          {"provider": "openstreetmap", "provider_id": "relation/1834818", "name": "Colosseum"},
+          {"provider": "openstreetmap", "provider_id": "node/365475871", "name": "Palatine Hill"},
+          {"provider": "openstreetmap", "provider_id": "relation/3374342", "name": "Pantheon"},
+          {"provider": "openstreetmap", "provider_id": "way/8035487", "name": "Castle of the Holy Angel"}
+        ],
+        "notes": "Trip dates: Thursday 2026-12-10 and Friday 2026-12-11 (given in context, not in the request). The listed places are example history candidates; any place from data/places.json is allowed. places.json version 2026-11-15 contains no food places (restaurants, markets), so food can only be covered with guide advice (e.g. data/rag_sources/official_guide/rome_wikivoyage_eat.md), not with invented venues."
+      },
+      "expected_behavior": "Generate a two-day itinerary for Rome built only from places in the curated dataset, focused on history, with a balanced number of stops, realistic visit durations and time for walking and breaks. Since the dataset has no food venues, the chatbot must not invent restaurants; it may give sourced food tips or say that food places are not available yet.",
+      "checks": ["place_grounding", "schedule_validity", "opening_hours", "information_reliability"],
+      "validation_criteria": [
+        "The itinerary has exactly 2 days",
+        "Every activity matches a place in data/places.json by provider and provider_id",
+        "Each day includes at least one history-related place (interest tag 'history')",
+        "No restaurant, market or other food venue outside data/places.json appears as an activity",
+        "Activities within a day do not overlap and leave time to walk between stops",
+        "Each day has a balanced number of stops (no more than 5)",
+        "Visits respect known winter opening hours (e.g. Colosseum and Palatine Hill close at 16:30)",
+        "Places with unknown opening hours are marked as 'hours not verified'"
+      ]
+    },
+    {
+      "test_id": "GD02",
+      "category": "itinerary_generation",
+      "user_request": "I have four hours in Rome and want a relaxed, inexpensive afternoon.",
+      "context": {
+        "places": [
+          {"provider": "openstreetmap", "provider_id": "way/4247138", "name": "Piazza Navona"},
+          {"provider": "openstreetmap", "provider_id": "relation/3374342", "name": "Pantheon"},
+          {"provider": "openstreetmap", "provider_id": "node/259576441", "name": "Fontana dei Libri"},
+          {"provider": "openstreetmap", "provider_id": "node/1340656195", "name": "Elephant and Obelisk"},
+          {"provider": "openstreetmap", "provider_id": "node/301361919", "name": "Statua \"parlante\" di Pasquino"}
+        ],
+        "notes": "Available time: 14:00-18:00 on Wednesday 2026-12-09. The listed places are in the historic centre, within a short walk of each other, and are mostly squares, fountains and statues that suit a low-budget afternoon. Piazza Navona, Fontana dei Libri, Elephant and Obelisk and Pasquino have unknown opening hours."
+      },
+      "expected_behavior": "Recommend a small number of nearby places from the dataset that fit in the four-hour window at a relaxed pace, preferring options that are usually inexpensive, without inventing ticket prices.",
+      "checks": ["place_grounding", "schedule_validity", "opening_hours", "information_reliability"],
+      "validation_criteria": [
+        "The plan covers a single afternoon and all activities fall between 14:00 and 18:00",
+        "The plan contains at most 4 stops, with breaks between them",
+        "Every activity matches a place in data/places.json",
+        "Activities do not overlap and the stops are within walking distance of each other",
+        "No specific ticket prices or costs are stated as facts",
+        "Stops with unknown opening hours are marked as 'hours not verified'"
+      ]
+    },
+    {
+      "test_id": "GD03",
+      "category": "schedule_realism",
+      "user_request": "Can you fit six museums into two hours: the Vatican Museums, Galleria Borghese, Museo Nazionale Romano, Palazzo Doria Pamphilj, Galleria Spada and Museo di Roma?",
+      "context": {
+        "places": [
+          {"provider": "openstreetmap", "provider_id": "way/112137587", "name": "Vatican Museums"},
+          {"provider": "openstreetmap", "provider_id": "node/1440405490", "name": "Galleria Borghese"},
+          {"provider": "openstreetmap", "provider_id": "node/677476578", "name": "Museo Nazionale Romano"},
+          {"provider": "openstreetmap", "provider_id": "node/706793341", "name": "Palazzo Doria Pamphilj"},
+          {"provider": "openstreetmap", "provider_id": "node/656532697", "name": "Galleria Spada"},
+          {"provider": "openstreetmap", "provider_id": "node/656829698", "name": "Museo di Roma"}
+        ],
+        "notes": "Estimated visit times in the dataset add up to 600 minutes (180 + 120 + 90 + 90 + 60 + 60), before any travel time. The Vatican Museums and Galleria Borghese are on opposite sides of the centre."
+      },
+      "expected_behavior": "Recognize that six museum visits plus travel cannot fit into two hours, explain why, and suggest a practical alternative such as one or two nearby museums in that time or spreading the museums over more days.",
+      "checks": ["schedule_validity", "place_grounding", "information_reliability"],
+      "validation_criteria": [
+        "The answer says the request is not realistic",
+        "No schedule with six museums in two hours is produced",
+        "The suggested alternative contains at most 2 museums for the two-hour window, or spreads the six museums over a longer period",
+        "Any museum suggested matches a place in data/places.json"
+      ]
+    },
+    {
+      "test_id": "GD04",
+      "category": "schedule_realism",
+      "user_request": "I want to visit Galleria Borghese on Monday morning.",
+      "context": {
+        "places": [
+          {"provider": "openstreetmap", "provider_id": "node/1440405490", "name": "Galleria Borghese"},
+          {"provider": "openstreetmap", "provider_id": "node/706793341", "name": "Palazzo Doria Pamphilj"},
+          {"provider": "openstreetmap", "provider_id": "way/112137587", "name": "Vatican Museums"},
+          {"provider": "openstreetmap", "provider_id": "node/656532697", "name": "Galleria Spada"}
+        ],
+        "notes": "Monday is 2026-12-07. Galleria Borghese has known opening hours 'Tu-Su 09:00-19:00', so it is closed on Monday. Museums open on Monday morning according to the dataset: Palazzo Doria Pamphilj (Mo-Th 09:00-19:00), Vatican Museums (Mo-Sa 09:00-18:00), Galleria Spada (We-Mo 08:30-19:30)."
+      },
+      "expected_behavior": "Use the stored opening hours to explain that Galleria Borghese is closed on Monday, then suggest another day when it is open (Tuesday to Sunday), or another museum from the dataset that is open on Monday morning.",
+      "checks": ["opening_hours", "place_grounding", "information_reliability"],
+      "validation_criteria": [
+        "The answer says Galleria Borghese is closed on Monday according to the stored hours",
+        "Galleria Borghese is not scheduled for Monday",
+        "The alternative is either a visit between Tuesday and Sunday within 09:00-19:00, or another dataset museum that is open on Monday morning",
+        "Any alternative place matches a place in data/places.json"
+      ]
+    },
+    {
+      "test_id": "GD05",
+      "category": "schedule_realism",
+      "user_request": "Can I visit the Cappella di Sant'Elena at 9 AM?",
+      "context": {
+        "places": [
+          {"provider": "openstreetmap", "provider_id": "node/3585887800", "name": "Cappella di Sant'Elena"}
+        ],
+        "notes": "Visit date: Tuesday 2026-12-08. The stored record has hours_status 'unknown' and no opening_hours value."
+      },
+      "expected_behavior": "Explain that the opening hours of this place cannot be verified from the stored data instead of inventing them; if it is added to a plan, mark it as 'hours not verified'.",
+      "checks": ["opening_hours", "information_reliability"],
+      "validation_criteria": [
+        "The answer says the opening hours are not verified or not known",
+        "The answer does not confirm that the place is open at 9 AM",
+        "No opening hours are invented",
+        "If the visit is scheduled, it carries an 'hours not verified' warning"
+      ]
+    },
+    {
+      "test_id": "GD06",
+      "category": "itinerary_modification",
+      "user_request": "Replace my afternoon outdoor activity on Day 2 with something indoors. Keep the morning unchanged.",
+      "context": {
+        "existing_trip": {
+          "city": "Rome",
+          "pace": "balanced",
+          "days": [
+            {
+              "day_number": 1,
+              "date": "2026-12-08",
+              "activities": [
+                {"provider": "openstreetmap", "provider_id": "relation/1834818", "name": "Colosseum", "start": "09:00", "end": "11:00"},
+                {"provider": "openstreetmap", "provider_id": "node/365475871", "name": "Palatine Hill", "start": "11:15", "end": "13:15"},
+                {"provider": "openstreetmap", "provider_id": "relation/3374342", "name": "Pantheon", "start": "15:00", "end": "15:30"}
+              ]
+            },
+            {
+              "day_number": 2,
+              "date": "2026-12-09",
+              "activities": [
+                {"provider": "openstreetmap", "provider_id": "way/112137587", "name": "Vatican Museums", "start": "09:00", "end": "12:00"},
+                {"provider": "openstreetmap", "provider_id": "way/244159210", "name": "Saint Peter's Basilica", "start": "12:15", "end": "13:15"},
+                {"provider": "openstreetmap", "provider_id": "relation/2529081", "name": "Trastevere", "start": "14:30", "end": "16:30", "note": "Outdoor neighbourhood walk"}
+              ]
+            }
+          ],
+          "history": ["plan_created"]
+        },
+        "places": [
+          {"provider": "openstreetmap", "provider_id": "relation/2529081", "name": "Trastevere"},
+          {"provider": "openstreetmap", "provider_id": "node/656532697", "name": "Galleria Spada"},
+          {"provider": "openstreetmap", "provider_id": "node/656829698", "name": "Museo di Roma"},
+          {"provider": "openstreetmap", "provider_id": "node/706793341", "name": "Palazzo Doria Pamphilj"},
+          {"provider": "openstreetmap", "provider_id": "node/1674754682", "name": "Cloisters of Bramante"}
+        ],
+        "notes": "Trastevere (indoor: false) is the outdoor afternoon activity to replace. Galleria Spada, Museo di Roma, Palazzo Doria Pamphilj and Cloisters of Bramante are indoor candidates (indoor: true) that are open on Wednesday afternoon according to the dataset."
+      },
+      "expected_behavior": "Replace only the Day 2 afternoon outdoor activity (Trastevere) with an indoor place from the dataset, adjust that time slot if needed, keep the Day 2 morning and all of Day 1 unchanged, and briefly explain the change.",
+      "checks": ["modification_correctness", "place_grounding", "schedule_validity", "opening_hours"],
+      "validation_criteria": [
+        "Day 1 is identical to the original itinerary",
+        "The Day 2 morning activities (Vatican Museums and Saint Peter's Basilica) keep the same places and times",
+        "Trastevere is removed from Day 2",
+        "The replacement is an indoor place (indoor: true) that matches a place in data/places.json",
+        "Day 2 activities do not overlap and the replacement respects its known opening hours on Wednesday",
+        "The answer briefly explains what was changed"
+      ]
+    },
+    {
+      "test_id": "GD07",
+      "category": "itinerary_modification",
+      "user_request": "Day 2 is too busy. Make it more relaxed without changing Day 1.",
+      "context": {
+        "existing_trip": {
+          "city": "Rome",
+          "pace": "intensive",
+          "days": [
+            {
+              "day_number": 1,
+              "date": "2026-12-10",
+              "activities": [
+                {"provider": "openstreetmap", "provider_id": "relation/3374342", "name": "Pantheon", "start": "09:30", "end": "10:00"},
+                {"provider": "openstreetmap", "provider_id": "way/4247138", "name": "Piazza Navona", "start": "10:15", "end": "10:45"},
+                {"provider": "openstreetmap", "provider_id": "node/656829698", "name": "Museo di Roma", "start": "11:00", "end": "12:00"}
+              ]
+            },
+            {
+              "day_number": 2,
+              "date": "2026-12-11",
+              "activities": [
+                {"provider": "openstreetmap", "provider_id": "relation/1834818", "name": "Colosseum", "start": "08:30", "end": "10:30"},
+                {"provider": "openstreetmap", "provider_id": "node/365475871", "name": "Palatine Hill", "start": "10:30", "end": "12:00"},
+                {"provider": "openstreetmap", "provider_id": "node/4754734734", "name": "Cloaca Máxima", "start": "12:10", "end": "12:25"},
+                {"provider": "openstreetmap", "provider_id": "node/706793341", "name": "Palazzo Doria Pamphilj", "start": "12:45", "end": "14:15"},
+                {"provider": "openstreetmap", "provider_id": "way/24098531", "name": "Spanish Steps", "start": "14:30", "end": "14:50"},
+                {"provider": "openstreetmap", "provider_id": "node/1440405490", "name": "Galleria Borghese", "start": "15:10", "end": "17:10"},
+                {"provider": "openstreetmap", "provider_id": "node/452570567", "name": "Catacombe di San Sebastiano", "start": "17:20", "end": "17:45"}
+              ]
+            }
+          ],
+          "history": ["plan_created"]
+        },
+        "notes": "Day 2 has 7 stops with almost no breaks or walking time, no lunch break, and ends at Catacombe di San Sebastiano, far south of Galleria Borghese and after its known closing time (17:30)."
+      },
+      "expected_behavior": "Reduce or reorganize the Day 2 activities so the day is relaxed (fewer stops, breaks and realistic walking time), keep Day 1 unchanged, and explain which stops were removed or moved.",
+      "checks": ["modification_correctness", "schedule_validity", "place_grounding", "opening_hours"],
+      "validation_criteria": [
+        "Day 1 is identical to the original itinerary",
+        "Day 2 has fewer activities than the original 7 (at most 4 for a relaxed pace)",
+        "Day 2 activities do not overlap and leave time to walk between stops",
+        "Every Day 2 activity matches a place in data/places.json",
+        "Day 2 activities respect known opening hours (no visit to Catacombe di San Sebastiano after 17:30)",
+        "No new days are added",
+        "The answer explains which stops were removed or moved"
+      ]
+    },
+    {
+      "test_id": "GD08",
+      "category": "missing_information",
+      "user_request": "Can you plan a trip for me?",
+      "context": {},
+      "expected_behavior": "Ask for the destination and trip duration before generating an itinerary.",
+      "checks": ["information_reliability"],
+      "validation_criteria": [
+        "No itinerary is generated",
+        "The answer asks for the city and/or number of days",
+        "The answer asks at most one follow-up question at a time",
+        "No places are recommended yet"
+      ]
+    },
+    {
+      "test_id": "GD09",
+      "category": "missing_information",
+      "user_request": "Add the Museo dei Gladiatori Sommersi to Day 1 of my itinerary.",
+      "context": {
+        "existing_trip": {
+          "city": "Rome",
+          "pace": "balanced",
+          "days": [
+            {
+              "day_number": 1,
+              "date": "2026-12-08",
+              "activities": [
+                {"provider": "openstreetmap", "provider_id": "relation/1834818", "name": "Colosseum", "start": "09:00", "end": "11:00"},
+                {"provider": "openstreetmap", "provider_id": "node/365475871", "name": "Palatine Hill", "start": "11:15", "end": "13:15"}
+              ]
+            }
+          ],
+          "history": ["plan_created"]
+        },
+        "notes": "'Museo dei Gladiatori Sommersi' is not in data/places.json; this test needs a place that cannot be found in the dataset."
+      },
+      "expected_behavior": "Explain that the requested attraction could not be found or verified in the stored place dataset, do not create a place record for it, keep the itinerary unchanged, and optionally offer similar places that are in the dataset.",
+      "checks": ["place_grounding", "modification_correctness", "information_reliability"],
+      "validation_criteria": [
+        "The answer says the attraction could not be found or verified",
+        "The requested attraction is not added to the itinerary",
+        "No invented provider_id, coordinates or opening hours appear",
+        "The existing Day 1 itinerary is unchanged",
+        "Any alternative suggested matches a place in data/places.json"
+      ]
+    },
+    {
+      "test_id": "GD10",
+      "category": "rag_advice",
+      "user_request": "What should I know about getting around Rome?",
+      "context": {
+        "notes": "Relevant sources in data/rag_sources/: official_guide/rome_wikivoyage_get_around.md (Wikivoyage 'Get around', topic getting_around) and travel_blog/rome_blog_romewise_transport.md."
+      },
+      "expected_behavior": "Give useful information about getting around Rome (walking, metro, buses and tickets) based on retrieved travel-guide passages, with source references, and without unsupported claims about current schedules, strikes or prices.",
+      "checks": ["rag_grounding", "information_reliability"],
+      "validation_criteria": [
+        "The answer is about transport and getting around Rome",
+        "The answer includes at least one source reference (title or URL) from the retrieved passages",
+        "The main claims are supported by the retrieved passages",
+        "No live schedules, current strikes or exact prices are presented as verified facts",
+        "No itinerary is generated"
+      ]
+    }
+  ]
+}
