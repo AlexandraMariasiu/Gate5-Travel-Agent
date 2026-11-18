@@ -6,3 +6,4 @@ venv/
 *.gguf
 *.safetensors
 chroma_db/
+.idea/
