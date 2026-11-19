@@ -1,16 +1,28 @@
-"""Load Markdown travel documents and split them into traceable chunks."""
+"""Load Markdown travel documents, chunk them, and store embeddings in ChromaDB."""
 
 from __future__ import annotations
 
+import argparse
 from dataclasses import dataclass
 from pathlib import Path
 import re
+from typing import Any
 import yaml
 
-from src.config import RAG_CHUNK_OVERLAP, RAG_CHUNK_SIZE, RAG_SOURCES_DIR
+from src.config import (
+    CHROMA_DB_DIR,
+    EMBEDDING_MODEL_NAME,
+    RAG_CHUNK_OVERLAP,
+    RAG_CHUNK_SIZE,
+    RAG_COLLECTION_NAME,
+    RAG_SOURCES_DIR,
+)
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
 SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+")
+
+# Cache loaded SentenceTransformer instances so repeat calls reuse weights in memory
+_MODEL_CACHE: dict[str, Any] = {}
 
 
 @dataclass(frozen=True)
@@ -258,3 +270,120 @@ def load_and_chunk_documents(
             )
         )
     return all_chunks
+
+
+def get_embedding_model(model_name: str = EMBEDDING_MODEL_NAME) -> Any:
+    """Load and cache the SentenceTransformer embedding model."""
+    if model_name not in _MODEL_CACHE:
+        # Lazy import avoids heavy PyTorch startup when only chunking or mocking
+        from sentence_transformers import SentenceTransformer
+
+        _MODEL_CACHE[model_name] = SentenceTransformer(model_name)
+    return _MODEL_CACHE[model_name]
+
+
+def embed_texts(
+    texts: list[str],
+    model_name: str = EMBEDDING_MODEL_NAME,
+) -> list[list[float]]:
+    """Encode text strings into L2-normalized embedding vectors."""
+    if not texts:
+        return []
+    model = get_embedding_model(model_name)
+    # Normalize vectors so cosine distance in ChromaDB matches dot-product similarity
+    vectors = model.encode(texts, normalize_embeddings=True, show_progress_bar=False)
+    return vectors.tolist()
+
+
+def get_chroma_collection(
+    persist_dir: Path | str = CHROMA_DB_DIR,
+    collection_name: str = RAG_COLLECTION_NAME,
+    reset: bool = False,
+) -> Any:
+    """Open (or recreate) the persistent ChromaDB collection."""
+    import chromadb
+
+    persist_path = Path(persist_dir)
+    persist_path.mkdir(parents=True, exist_ok=True)
+    client = chromadb.PersistentClient(path=str(persist_path))
+
+    if reset:
+        # Drop existing collection so stale chunks from deleted/edited files do not linger
+        existing = {col.name for col in client.list_collections()}
+        if collection_name in existing:
+            client.delete_collection(name=collection_name)
+
+    return client.get_or_create_collection(
+        name=collection_name,
+        metadata={"hnsw:space": "cosine"},
+    )
+
+
+def ingest_documents(
+    sources_dir: Path | str = RAG_SOURCES_DIR,
+    persist_dir: Path | str = CHROMA_DB_DIR,
+    collection_name: str = RAG_COLLECTION_NAME,
+    model_name: str = EMBEDDING_MODEL_NAME,
+    chunk_size: int = RAG_CHUNK_SIZE,
+    chunk_overlap: int = RAG_CHUNK_OVERLAP,
+    reset: bool = False,
+    batch_size: int = 64,
+) -> int:
+    """Load, chunk, embed, and upsert all RAG documents into ChromaDB."""
+    chunks = load_and_chunk_documents(
+        sources_dir=sources_dir,
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+    )
+    if not chunks:
+        return 0
+
+    collection = get_chroma_collection(
+        persist_dir=persist_dir,
+        collection_name=collection_name,
+        reset=reset,
+    )
+
+    # Batch embeddings and upserts to keep memory steady on larger document sets
+    for start in range(0, len(chunks), batch_size):
+        batch = chunks[start : start + batch_size]
+        texts = [chunk.text for chunk in batch]
+        embeddings = embed_texts(texts, model_name=model_name)
+        collection.upsert(
+            ids=[chunk.chunk_id for chunk in batch],
+            documents=texts,
+            metadatas=[chunk.metadata for chunk in batch],
+            embeddings=embeddings,
+        )
+
+    return len(chunks)
+
+
+def main() -> None:
+    """CLI entrypoint to build or refresh the ChromaDB travel notes index."""
+    parser = argparse.ArgumentParser(
+        description="Ingest travel Markdown documents into ChromaDB."
+    )
+    parser.add_argument("--sources-dir", type=Path, default=RAG_SOURCES_DIR)
+    parser.add_argument("--persist-dir", type=Path, default=CHROMA_DB_DIR)
+    parser.add_argument("--collection", type=str, default=RAG_COLLECTION_NAME)
+    parser.add_argument("--model", type=str, default=EMBEDDING_MODEL_NAME)
+    parser.add_argument(
+        "--reset",
+        action="store_true",
+        help="Delete and rebuild the collection before ingesting.",
+    )
+    args = parser.parse_args()
+
+    count = ingest_documents(
+        sources_dir=args.sources_dir,
+        persist_dir=args.persist_dir,
+        collection_name=args.collection,
+        model_name=args.model,
+        reset=args.reset,
+    )
+    print(f"Ingested {count} chunks into '{args.collection}' at {args.persist_dir}")
+
+
+if __name__ == "__main__":
+    main()
