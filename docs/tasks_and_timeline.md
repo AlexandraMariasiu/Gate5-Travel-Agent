@@ -18,7 +18,7 @@
 | 2 | Nati | Build the basic RAG pipeline by chunking documents, generating embeddings and implementing semantic search. | Pending | |
 | 3 | Alexia | Implement automated tests to check the validity of the datasets and shared data models. | Pending | |
 | 4 | Alexandra | Implement a reusable SLM client and extract structured trip preferences from user messages, with validation and automated tests. | Completed | [#10](https://github.com/AlexandraMariasiu/Gate5-Travel-Agent/pull/10) |
-| 5 | Denisa | Implement a basic itinerary generator that selects relevant places and distributes them across the requested days. | Pending | |
+| 5 | Denisa | Implement a basic itinerary generator that selects relevant places and distributes them across the requested days. | Completed | [#11](https://github.com/AlexandraMariasiu/Gate5-Travel-Agent/pull/11) |
 
 ## Week 9 - Develop the agent, connect it to the SLM and place data, and implement basic itinerary validation. Compare the candidate models.
 
