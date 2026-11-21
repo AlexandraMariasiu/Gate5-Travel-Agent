@@ -5,3 +5,5 @@ requests>=2.31
 beautifulsoup4>=4.12
 trafilatura>=1.12
 PyYAML>=6.0
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
